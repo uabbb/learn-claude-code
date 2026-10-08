@@ -79,7 +79,9 @@ def run_bash(command: str) -> str:
 # -- New in s02: four tools --
 
 def safe_path(p: str) -> Path:
+    # (WORKDIR / p) 把基准目录和输入路径连接起来
     path = (WORKDIR / p).resolve()
+    # 检查路径是否在基准目录下
     if not path.is_relative_to(WORKDIR):
         raise ValueError(f"Path escapes workspace: {p}")
     return path
@@ -176,7 +178,7 @@ def agent_loop(messages: list):
 
         results = []
         for block in tool_calls:
-            print(f"\033[33m> {block.name}\033[0m")
+            print(f"\033[33m> 正在调用{block.name}工具\033[0m")
             handler = TOOL_HANDLERS.get(block.name)
             output = handler(**block.input) if handler else f"Unknown: {block.name}"
             print(str(output)[:200])
