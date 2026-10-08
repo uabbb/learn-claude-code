@@ -140,7 +140,7 @@ Calls are executed one by one in their original `response.content` order.
 
 ```sh
 cd learn-claude-code
-python s02_tool_use/code.py
+python s02_tool_use/agent_loop.py
 ```
 
 Try these prompts:

@@ -155,7 +155,7 @@ While npm install ran in the background, the Agent Loop continued with read_file
 
 ```sh
 cd learn-claude-code
-python s11_background_tasks/code.py
+python s11_background_tasks/agent_loop.py
 ```
 
 Try these prompts:

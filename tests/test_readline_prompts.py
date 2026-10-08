@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_FILES = tuple(sorted([
-    *ROOT.glob("s*/code.py"),
+    *ROOT.glob("s*/agent_loop.py"),
     *ROOT.glob("agents/*.py"),
 ]))
 ANSI_ESCAPE = re.compile(r"\x1b\[[0-9;]*m")
@@ -74,7 +74,7 @@ def test_colored_input_prompts_mark_ansi_as_zero_width() -> None:
 
 def test_async_redraw_prompts_keep_markers_out_of_display_text() -> None:
     for lesson in ("s15_integrated_harness", "s16_workflow_runtime"):
-        path = ROOT / lesson / "code.py"
+        path = ROOT / lesson / "agent_loop.py"
         tree = ast.parse(path.read_text(encoding="utf-8"))
         assignments = string_assignments(tree)
         display_prompt = assignments["PROMPT"]

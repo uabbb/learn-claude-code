@@ -2,7 +2,7 @@
 """
 s15: Integrated Harness - combine the course mechanisms in one runtime.
 
-Run:  python s15_integrated_harness/code.py
+Run:  python s15_integrated_harness/agent_loop.py
 Need: pip install anthropic python-dotenv pyyaml + .env with ANTHROPIC_API_KEY
 
     scheduled work ----+                    +---- team events
@@ -83,7 +83,7 @@ CLI_ACTIVE = False
 
 def load_memory_runtime():
     """Load s09 once and share this host's client, model, and workspace."""
-    path = Path(__file__).resolve().parents[1] / "s09_memory" / "code.py"
+    path = Path(__file__).resolve().parents[1] / "s09_memory" / "agent_loop.py"
     spec = importlib.util.spec_from_file_location(
         f"integrated_memory_{id(client)}", path
     )

@@ -2,7 +2,7 @@
 """
 s13: Agent Teams - persistent teammates with shared tasks and mailboxes.
 
-Run:  python s13_agent_teams/code.py
+Run:  python s13_agent_teams/agent_loop.py
 Need: pip install anthropic python-dotenv + .env with ANTHROPIC_API_KEY
 
     +------+  spawn(task_id)  +----------+  result  +------+

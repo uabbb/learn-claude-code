@@ -131,7 +131,7 @@ for job in fired:
 
 ```sh
 cd learn-claude-code
-python s12_cron_scheduler/code.py
+python s12_cron_scheduler/agent_loop.py
 ```
 
 可以依次输入：

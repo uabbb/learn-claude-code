@@ -92,7 +92,7 @@ The parent dispatches `task` through the same handler map as its other tools. Th
 
 ```sh
 cd learn-claude-code
-python s06_subagent/code.py
+python s06_subagent/agent_loop.py
 ```
 
 Try these prompts:

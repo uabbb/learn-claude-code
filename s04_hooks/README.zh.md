@@ -201,7 +201,7 @@ for block in tool_calls:
 
 ```sh
 cd learn-claude-code
-python s04_hooks/code.py
+python s04_hooks/agent_loop.py
 ```
 
 试试这些 prompt：

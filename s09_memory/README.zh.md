@@ -174,7 +174,7 @@ except Exception:
 
 ```sh
 cd learn-claude-code
-python s09_memory/code.py
+python s09_memory/agent_loop.py
 ```
 
 1. 输入 `I prefer using tabs for indentation. Remember that.`，结束后检查 `.memory/` 是否新增记忆文件，`MEMORY.md` 是否出现对应索引；

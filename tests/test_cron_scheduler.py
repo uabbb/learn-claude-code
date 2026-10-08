@@ -13,7 +13,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s12_cron_scheduler" / "code.py"
+LESSON = ROOT / "s12_cron_scheduler" / "agent_loop.py"
 
 
 def load_lesson(workdir: Path):

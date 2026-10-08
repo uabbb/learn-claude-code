@@ -173,7 +173,7 @@ This chapter does not carry Task, Background, Cron, Team, or Worktree. They join
 
 ```sh
 cd learn-claude-code
-python s14_mcp_plugin/code.py
+python s14_mcp_plugin/agent_loop.py
 ```
 
 Enter:

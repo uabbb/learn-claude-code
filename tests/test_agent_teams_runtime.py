@@ -15,23 +15,23 @@ from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s13_agent_teams" / "code.py"
+LESSON = ROOT / "s13_agent_teams" / "agent_loop.py"
 DOWNSTREAM_LESSONS = (
-    ROOT / "s15_integrated_harness" / "code.py",
+    ROOT / "s15_integrated_harness" / "agent_loop.py",
 )
 RUNTIME_LESSONS = (LESSON, *DOWNSTREAM_LESSONS)
 MCP_LESSONS = (
-    ROOT / "s14_mcp_plugin" / "code.py",
-    ROOT / "s15_integrated_harness" / "code.py",
+    ROOT / "s14_mcp_plugin" / "agent_loop.py",
+    ROOT / "s15_integrated_harness" / "agent_loop.py",
 )
 BACKGROUND_LESSONS = tuple(
-    ROOT / name / "code.py" for name in (
+    ROOT / name / "agent_loop.py" for name in (
         "s11_background_tasks",
         "s15_integrated_harness",
     )
 )
 CRON_LESSONS = tuple(
-    ROOT / name / "code.py" for name in (
+    ROOT / name / "agent_loop.py" for name in (
         "s12_cron_scheduler",
         "s15_integrated_harness",
     )
@@ -367,7 +367,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_mcp_lesson_builds_on_the_base_kernel(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s14_mcp_plugin" / "code.py"
+                Path(tmp), ROOT / "s14_mcp_plugin" / "agent_loop.py"
             )
             tools_before, handlers_before = lesson.assemble_tool_pool()
             self.assertEqual(
@@ -652,7 +652,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             lesson = load_lesson(
-                root, ROOT / "s15_integrated_harness" / "code.py"
+                root, ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             outside = root.parent / f"outside-{time.time_ns()}.txt"
             block = types.SimpleNamespace(
@@ -819,7 +819,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_teammate_dispatch_runs_permission_and_post_hooks(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             block = types.SimpleNamespace(
                 name="write_file",
@@ -864,7 +864,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_teammate_reads_shutdown_between_tool_rounds(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             entered = threading.Event()
             release = threading.Event()
@@ -1187,7 +1187,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_completed_background_task_wakes_the_agent_once(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             seen_messages = []
 
@@ -1228,7 +1228,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_background_results_have_one_atomic_consumer(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
 
             class CoordinatedLock:
@@ -1269,7 +1269,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_background_ids_are_allocated_atomically(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
 
             class TrackingLock:
@@ -1325,7 +1325,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_background_hook_failure_reaches_terminal_state(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             block = types.SimpleNamespace(
                 id="tool-hook",
@@ -1354,7 +1354,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_background_thread_start_failure_rolls_back_task(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             block = types.SimpleNamespace(
                 id="tool-start",
@@ -1379,7 +1379,7 @@ class AgentTeamsRuntimeTests(unittest.TestCase):
     def test_s15_background_start_failure_becomes_tool_result(self):
         with tempfile.TemporaryDirectory() as tmp:
             lesson = load_lesson(
-                Path(tmp), ROOT / "s15_integrated_harness" / "code.py"
+                Path(tmp), ROOT / "s15_integrated_harness" / "agent_loop.py"
             )
             block = types.SimpleNamespace(
                 type="tool_use",

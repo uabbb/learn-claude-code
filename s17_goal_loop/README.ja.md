@@ -108,7 +108,7 @@ tests/auth 以外の test file は変更しない
 自動実行の turn 数を制限したい場合は、Goal の内部に固定 budget を隠さず、main loop の global turn limit を使います。
 
 ```bash
-MAX_TURNS=20 python s17_goal_loop/code.py \
+MAX_TURNS=20 python s17_goal_loop/agent_loop.py \
   "/goal npm run typecheck が exit code 0 になるまで type error を修正する"
 ```
 
@@ -207,7 +207,7 @@ GOAL_EVALUATOR_MODEL_ID=...
 interactive session を開始します。
 
 ```bash
-python s17_goal_loop/code.py
+python s17_goal_loop/agent_loop.py
 ```
 
 次に入力します。
@@ -219,7 +219,7 @@ python s17_goal_loop/code.py
 command line から直接 Goal を設定することもできます。
 
 ```bash
-python s17_goal_loop/code.py "/goal python -m pytest が exit code 0 で終了する"
+python s17_goal_loop/agent_loop.py "/goal python -m pytest が exit code 0 で終了する"
 ```
 
 ## s16 との関係

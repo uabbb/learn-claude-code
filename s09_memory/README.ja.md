@@ -174,7 +174,7 @@ except Exception:
 
 ```sh
 cd learn-claude-code
-python s09_memory/code.py
+python s09_memory/agent_loop.py
 ```
 
 1. `I prefer using tabs for indentation. Remember that.` と入力し、turn の後に `.memory/` へ新しい record が増え、`MEMORY.md` に index entry が作られたか確認する。

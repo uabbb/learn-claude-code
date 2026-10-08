@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s08_context_compact" / "code.py"
+LESSON = ROOT / "s08_context_compact" / "agent_loop.py"
 
 
 def load_lesson(monkeypatch, workdir: Path):

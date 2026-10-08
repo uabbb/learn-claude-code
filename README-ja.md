@@ -272,9 +272,9 @@ cd learn-claude-code
 pip install -r requirements.txt
 cp .env.example .env   # .env を編集して ANTHROPIC_API_KEY を入力
 
-python s01_agent_loop/code.py        # ここから開始 — 1ループ + bash
-python s08_context_compact/code.py    # コンテキスト圧縮（複雑章）
-python s17_goal_loop/code.py          # 終点: 目標でループを閉じる
+python s01_agent_loop/agent_loop.py        # ここから開始 — 1ループ + bash
+python s08_context_compact/agent_loop.py    # コンテキスト圧縮（複雑章）
+python s17_goal_loop/agent_loop.py          # 終点: 目標でループを閉じる
 ```
 
 ### 旧 12 セッション移行版

@@ -108,7 +108,7 @@ without modifying test files outside tests/auth
 If you need to bound unattended work, use the main loop's global turn limit instead of hiding a fixed budget inside Goal:
 
 ```bash
-MAX_TURNS=20 python s17_goal_loop/code.py \
+MAX_TURNS=20 python s17_goal_loop/agent_loop.py \
   "/goal fix the type errors until npm run typecheck exits 0"
 ```
 
@@ -207,7 +207,7 @@ GOAL_EVALUATOR_MODEL_ID=...
 Start the interactive session:
 
 ```bash
-python s17_goal_loop/code.py
+python s17_goal_loop/agent_loop.py
 ```
 
 Then enter:
@@ -219,7 +219,7 @@ Then enter:
 You can also set a Goal directly from the command line:
 
 ```bash
-python s17_goal_loop/code.py "/goal python -m pytest exits with code 0"
+python s17_goal_loop/agent_loop.py "/goal python -m pytest exits with code 0"
 ```
 
 ## Relationship to s16

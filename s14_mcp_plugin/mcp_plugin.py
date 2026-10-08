@@ -2,7 +2,7 @@
 """
 s14: MCP Tools - discover external tools and add them to the agent loop.
 
-Run:  python s14_mcp_plugin/code.py
+Run:  python s14_mcp_plugin/agent_loop.py
 Need: pip install anthropic python-dotenv + .env with ANTHROPIC_API_KEY
 
     connect_mcp("docs")

@@ -9,7 +9,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s10_task_system" / "code.py"
+LESSON = ROOT / "s10_task_system" / "agent_loop.py"
 
 
 def load_lesson(workdir: Path):

@@ -3,9 +3,9 @@
 s16: Workflow Runtime - run a saved orchestration through one tool call.
 
 Run:
-  python s16_workflow_runtime/code.py
-  python s16_workflow_runtime/code.py demo
-  python s16_workflow_runtime/code.py resume
+  python s16_workflow_runtime/agent_loop.py
+  python s16_workflow_runtime/agent_loop.py demo
+  python s16_workflow_runtime/agent_loop.py resume
 
     +-------------+       +--------------------------------+
     | Agent loop  | ----> | Workflow(name, args, run_id)  |
@@ -804,7 +804,7 @@ def install_workflow_tool(host):
 
 def load_integrated_host():
     """Load s15 lazily so deterministic workflow tests need no API key."""
-    path = Path(__file__).resolve().parents[1] / "s15_integrated_harness" / "code.py"
+    path = Path(__file__).resolve().parents[1] / "s15_integrated_harness" / "agent_loop.py"
     spec = importlib.util.spec_from_file_location("integrated_host", path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"unable to load integrated host from {path}")
@@ -820,7 +820,7 @@ async def run_demo(argv):
     if argv and argv[0] == "resume":
         resume_id = _read_last_run()
         if not resume_id:
-            print("nothing to resume; run `python code.py demo` first.")
+            print("nothing to resume; run `python agent_loop.py demo` first.")
             return
         print(f"resuming {resume_id}; unchanged agent() calls use the journal cache\n")
     else:

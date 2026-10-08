@@ -92,7 +92,7 @@ TOOL_HANDLERS = {**BASE_HANDLERS, "task": run_subagent}
 
 ```sh
 cd learn-claude-code
-python s06_subagent/code.py
+python s06_subagent/agent_loop.py
 ```
 
 试试这些 prompt：

@@ -300,7 +300,7 @@ if compact_requested:
 
 ```bash
 cd learn-claude-code
-python s08_context_compact/code.py
+python s08_context_compact/agent_loop.py
 ```
 
 ### 実験 1：古い結果を置き換える

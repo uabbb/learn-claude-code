@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s11_background_tasks" / "code.py"
+LESSON = ROOT / "s11_background_tasks" / "agent_loop.py"
 
 
 def load_lesson(workdir: Path):

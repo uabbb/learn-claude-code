@@ -128,7 +128,7 @@ def load(self, name: str) -> str:
 
 ```sh
 cd learn-claude-code
-python s07_skill_loading/code.py
+python s07_skill_loading/agent_loop.py
 ```
 
 以下の prompt を試す：

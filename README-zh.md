@@ -275,9 +275,9 @@ cd learn-claude-code
 pip install -r requirements.txt
 cp .env.example .env   # 编辑 .env 填入你的 ANTHROPIC_API_KEY
 
-python s01_agent_loop/code.py        # 起点 — 一个循环 + bash
-python s08_context_compact/code.py    # 上下文压缩（复杂章）
-python s17_goal_loop/code.py          # 终点章：用目标闭合循环
+python s01_agent_loop/agent_loop.py        # 起点 — 一个循环 + bash
+python s08_context_compact/agent_loop.py    # 上下文压缩（复杂章）
+python s17_goal_loop/agent_loop.py          # 终点章：用目标闭合循环
 ```
 
 ### 旧版 12 章过渡线

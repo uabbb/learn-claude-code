@@ -173,7 +173,7 @@ MCP error: TypeError: <lambda>() missing 1 required argument: 'query'
 
 ```sh
 cd learn-claude-code
-python s14_mcp_plugin/code.py
+python s14_mcp_plugin/agent_loop.py
 ```
 
 输入：

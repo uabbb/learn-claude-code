@@ -26,7 +26,7 @@ hooks, and lifecycle controls around it.
 
 Usage:
     pip install anthropic python-dotenv
-    ANTHROPIC_API_KEY=... python s01_agent_loop/code.py
+    ANTHROPIC_API_KEY=... python s01_agent_loop/agent_loop.py
 """
 
 import os

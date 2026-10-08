@@ -155,7 +155,7 @@ npm install がバックグラウンドで実行されている間、Agent Loop 
 
 ```sh
 cd learn-claude-code
-python s11_background_tasks/code.py
+python s11_background_tasks/agent_loop.py
 ```
 
 以下のプロンプトを試してください：

@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s07_skill_loading" / "code.py"
-INTEGRATED_LESSON = ROOT / "s15_integrated_harness" / "code.py"
+LESSON = ROOT / "s07_skill_loading" / "agent_loop.py"
+INTEGRATED_LESSON = ROOT / "s15_integrated_harness" / "agent_loop.py"
 SKILL_LESSONS = (LESSON, INTEGRATED_LESSON)
 
 

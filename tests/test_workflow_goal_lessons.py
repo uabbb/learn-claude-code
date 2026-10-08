@@ -51,8 +51,8 @@ def run_lesson(script: Path, *args: str) -> str:
 
 
 def test_workflow_runtime_resumes_from_journal(tmp_path: Path) -> None:
-    script = tmp_path / "code.py"
-    shutil.copy2(ROOT / "s16_workflow_runtime" / "code.py", script)
+    script = tmp_path / "agent_loop.py"
+    shutil.copy2(ROOT / "s16_workflow_runtime" / "agent_loop.py", script)
 
     first = run_lesson(script, "demo")
     resumed = run_lesson(script, "resume")
@@ -65,7 +65,7 @@ def test_workflow_runtime_resumes_from_journal(tmp_path: Path) -> None:
 
 def test_workflow_runtime_rejects_unsafe_artifact_names() -> None:
     workflow = load_lesson(
-        "workflow_name_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_name_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
 
     for name in ("../escape", "../../escape", "nested/name"):
@@ -84,7 +84,7 @@ def test_workflow_runtime_enforces_budget_and_shared_agent_cap(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_limit_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_limit_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     budget = workflow.Budget(total=1)
     with pytest.raises(workflow.WorkflowInputError):
@@ -128,7 +128,7 @@ def test_workflow_runtime_enforces_budget_and_shared_agent_cap(
 
 def test_workflow_runtime_rejects_corrupt_resume_journal(tmp_path: Path) -> None:
     workflow = load_lesson(
-        "workflow_journal_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_journal_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     run_id = "wf_corrupt_0001"
     (tmp_path / f"{run_id}.journal.jsonl").write_text("{not-json}\n")
@@ -141,7 +141,7 @@ def test_workflow_tool_adapter_uses_registry_and_returns_json(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_adapter_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_adapter_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     monkeypatch.setattr(workflow, "STORE", tmp_path)
 
@@ -170,7 +170,7 @@ def test_fresh_workflow_runs_have_unique_identity_and_resume_validates_args(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_identity_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_identity_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     monkeypatch.setattr(workflow, "STORE", tmp_path)
 
@@ -193,7 +193,7 @@ def test_fresh_workflow_run_refuses_an_existing_identity(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_collision_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_collision_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     monkeypatch.setattr(workflow, "STORE", tmp_path)
     fixed_id = "wf_review-changes_0000000000001a7b"
@@ -215,7 +215,7 @@ def test_invalid_resume_does_not_overwrite_completed_artifacts(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_resume_guard_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_resume_guard_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     monkeypatch.setattr(workflow, "STORE", tmp_path)
     result = asyncio.run(
@@ -244,7 +244,7 @@ def test_active_workflow_run_rejects_concurrent_resume(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     workflow = load_lesson(
-        "workflow_active_run_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_active_run_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     monkeypatch.setattr(workflow, "STORE", tmp_path)
     run_id = "wf_slow-test_0000000000001a7b"
@@ -282,7 +282,7 @@ def test_active_workflow_run_rejects_concurrent_resume(
 
 def test_workflow_run_lock_is_cross_process(tmp_path: Path) -> None:
     workflow = load_lesson(
-        "workflow_process_lock_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_process_lock_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     workflow.STORE = tmp_path
     run_id = "wf_process-lock_0000000000001a7b"
@@ -292,7 +292,7 @@ def test_workflow_run_lock_is_cross_process(tmp_path: Path) -> None:
     with workflow.workflow_run_lock(run_id):
         child = context.Process(
             target=acquire_workflow_lock_in_child,
-            args=(str(ROOT / "s16_workflow_runtime" / "code.py"),
+            args=(str(ROOT / "s16_workflow_runtime" / "agent_loop.py"),
                   str(tmp_path), run_id, results),
         )
         child.start()
@@ -304,7 +304,7 @@ def test_workflow_run_lock_is_cross_process(tmp_path: Path) -> None:
 
 def test_workflow_tool_extends_the_integrated_host_pool() -> None:
     workflow = load_lesson(
-        "workflow_host_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_host_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     host = types.SimpleNamespace(
         assemble_tool_pool=lambda: (
@@ -322,7 +322,7 @@ def test_workflow_tool_extends_the_integrated_host_pool() -> None:
 
 def test_anthropic_runner_parses_json_and_records_real_usage() -> None:
     workflow = load_lesson(
-        "workflow_real_runner_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_real_runner_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     calls = []
 
@@ -361,7 +361,7 @@ def test_real_runner_output_retries_once_after_invalid_json(
 ) -> None:
     workflow = load_lesson(
         "workflow_real_runner_retry_test",
-        ROOT / "s16_workflow_runtime" / "code.py",
+        ROOT / "s16_workflow_runtime" / "agent_loop.py",
     )
     responses = iter([
         types.SimpleNamespace(
@@ -407,7 +407,7 @@ def test_real_runner_output_retries_once_after_invalid_json(
 def test_install_workflow_tool_selects_the_host_api_runner() -> None:
     workflow = load_lesson(
         "workflow_runner_factory_test",
-        ROOT / "s16_workflow_runtime" / "code.py",
+        ROOT / "s16_workflow_runtime" / "agent_loop.py",
     )
     client = object()
     host = types.SimpleNamespace(
@@ -427,7 +427,7 @@ def test_install_workflow_tool_selects_the_host_api_runner() -> None:
 def test_parallel_agent_calls_do_not_block_the_event_loop(tmp_path: Path) -> None:
     workflow = load_lesson(
         "workflow_parallel_runner_test",
-        ROOT / "s16_workflow_runtime" / "code.py",
+        ROOT / "s16_workflow_runtime" / "agent_loop.py",
     )
     barrier = threading.Barrier(2)
 
@@ -465,7 +465,7 @@ def test_workflow_default_entry_extends_the_real_s15_host(
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("MODEL_ID", "test-model")
     workflow = load_lesson(
-        "workflow_real_host_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_real_host_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     host = workflow.load_integrated_host()
 
@@ -485,7 +485,7 @@ def test_workflow_default_entry_extends_the_real_s15_host(
 
 def test_workflow_tool_adapter_rejects_model_supplied_code() -> None:
     workflow = load_lesson(
-        "workflow_schema_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_schema_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     properties = workflow.WORKFLOW_TOOL["input_schema"]["properties"]
 

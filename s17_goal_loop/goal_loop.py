@@ -8,8 +8,8 @@ decides whether the completion condition holds, and sends unfinished work back
 through the same agent loop.
 
 Run:
-  python s17_goal_loop/code.py
-  python s17_goal_loop/code.py "/goal pytest tests exits with code 0"
+  python s17_goal_loop/agent_loop.py
+  python s17_goal_loop/agent_loop.py "/goal pytest tests exits with code 0"
 
 The live path uses the Anthropic API for both the worker and the evaluator.
 Test doubles belong in tests only.

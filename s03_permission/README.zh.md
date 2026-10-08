@@ -143,7 +143,7 @@ for block in tool_calls:
 
 ```sh
 cd learn-claude-code
-python s03_permission/code.py
+python s03_permission/agent_loop.py
 ```
 
 试试这些 prompt：

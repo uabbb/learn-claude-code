@@ -300,7 +300,7 @@ This leaves no orphaned tool result. It also preserves the record of a file writ
 
 ```bash
 cd learn-claude-code
-python s08_context_compact/code.py
+python s08_context_compact/agent_loop.py
 ```
 
 ### Experiment 1: Replace Earlier Results

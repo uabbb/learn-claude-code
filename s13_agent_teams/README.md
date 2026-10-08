@@ -422,7 +422,7 @@ The terminal exposes the user request, Lead's proposal, task state, claims, sele
 
 ```sh
 cd learn-claude-code
-python s13_agent_teams/code.py
+python s13_agent_teams/agent_loop.py
 ```
 
 Start with an ordinary request:

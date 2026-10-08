@@ -202,7 +202,7 @@ complete_task(tests.id)     # ✓ Completed
 
 ```sh
 cd learn-claude-code
-python s10_task_system/code.py
+python s10_task_system/agent_loop.py
 ```
 
 以下のプロンプトを試してください：

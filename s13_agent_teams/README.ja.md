@@ -422,7 +422,7 @@ Lead：認証タスクの結果を受け取りました。残りの作業を調�
 
 ```sh
 cd learn-claude-code
-python s13_agent_teams/code.py
+python s13_agent_teams/agent_loop.py
 ```
 
 通常の要求を入力する：

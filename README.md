@@ -351,9 +351,9 @@ cd learn-claude-code
 pip install -r requirements.txt
 cp .env.example .env   # configure ANTHROPIC_API_KEY
 
-python s01_agent_loop/code.py        # Start here -- one loop + bash
-python s08_context_compact/code.py   # Context compaction (complex)
-python s17_goal_loop/code.py         # Endpoint: continue until a checkable goal is met
+python s01_agent_loop/agent_loop.py        # Start here -- one loop + bash
+python s08_context_compact/agent_loop.py   # Context compaction (complex)
+python s17_goal_loop/agent_loop.py         # Endpoint: continue until a checkable goal is met
 ```
 
 ### Legacy 12-Lesson Track

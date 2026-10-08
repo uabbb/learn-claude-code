@@ -155,7 +155,7 @@ npm install 在后台运行时，Agent Loop 继续执行了 read_file。
 
 ```sh
 cd learn-claude-code
-python s11_background_tasks/code.py
+python s11_background_tasks/agent_loop.py
 ```
 
 试试这些 prompt：

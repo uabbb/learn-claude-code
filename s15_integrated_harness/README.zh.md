@@ -214,7 +214,7 @@ MCP 负责外部能力：
 
 ```sh
 cd learn-claude-code
-python s15_integrated_harness/code.py
+python s15_integrated_harness/agent_loop.py
 ```
 
 可以试：

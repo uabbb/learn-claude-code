@@ -9,8 +9,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 COURSE_MODULES = [
-    ("s05", REPO_ROOT / "s05_todo_write" / "code.py"),
-    ("s15", REPO_ROOT / "s15_integrated_harness" / "code.py"),
+    ("s05", REPO_ROOT / "s05_todo_write" / "agent_loop.py"),
+    ("s15", REPO_ROOT / "s15_integrated_harness" / "agent_loop.py"),
 ]
 
 

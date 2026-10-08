@@ -214,7 +214,7 @@ MCP は external capability を担当する：
 
 ```sh
 cd learn-claude-code
-python s15_integrated_harness/code.py
+python s15_integrated_harness/agent_loop.py
 ```
 
 試す prompt：

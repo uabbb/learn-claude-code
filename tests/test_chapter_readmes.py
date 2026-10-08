@@ -30,4 +30,4 @@ def test_every_chapter_has_the_same_language_navigation() -> None:
 
 def test_every_chapter_script_compiles_on_python_311() -> None:
     for chapter in CHAPTERS:
-        _ = py_compile.compile(str(chapter / "code.py"), doraise=True)
+        _ = py_compile.compile(str(chapter / "agent_loop.py"), doraise=True)

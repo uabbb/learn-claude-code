@@ -419,7 +419,7 @@ Lead：我已收到认证任务的结果，接下来继续协调其余工作。
 
 ```sh
 cd learn-claude-code
-python s13_agent_teams/code.py
+python s13_agent_teams/agent_loop.py
 ```
 
 输入一个自然需求：

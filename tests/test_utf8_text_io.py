@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_FILES = tuple(sorted([
-    *ROOT.glob("s*/code.py"),
+    *ROOT.glob("s*/agent_loop.py"),
     *ROOT.glob("agents/*.py"),
     *ROOT.glob("skills/agent-builder/**/*.py"),
 ]))

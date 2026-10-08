@@ -9,7 +9,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 PERMISSION_LESSONS = tuple(
-    ROOT / chapter / "code.py"
+    ROOT / chapter / "agent_loop.py"
     for chapter in (
         "s03_permission",
         "s04_hooks",

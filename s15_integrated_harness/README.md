@@ -214,7 +214,7 @@ MCP owns external capability:
 
 ```sh
 cd learn-claude-code
-python s15_integrated_harness/code.py
+python s15_integrated_harness/agent_loop.py
 ```
 
 Try:

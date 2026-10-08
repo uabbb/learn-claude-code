@@ -131,7 +131,7 @@ Use crontab, a systemd timer, or an external scheduler when jobs must run while 
 
 ```sh
 cd learn-claude-code
-python s12_cron_scheduler/code.py
+python s12_cron_scheduler/agent_loop.py
 ```
 
 Enter these prompts in order:

@@ -140,7 +140,7 @@ for block in tool_calls:
 
 ```sh
 cd learn-claude-code
-python s02_tool_use/code.py
+python s02_tool_use/agent_loop.py
 ```
 
 试试这些 prompt：

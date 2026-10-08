@@ -11,7 +11,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 LESSONS = tuple(
-    ROOT / chapter / "code.py"
+    ROOT / chapter / "agent_loop.py"
     for chapter in (
         "s01_agent_loop",
         "s02_tool_use",
@@ -29,8 +29,8 @@ LESSONS = tuple(
         "s14_mcp_plugin",
     )
 )
-INTEGRATED_LESSON = ROOT / "s15_integrated_harness" / "code.py"
-GOAL_LESSON = ROOT / "s17_goal_loop" / "code.py"
+INTEGRATED_LESSON = ROOT / "s15_integrated_harness" / "agent_loop.py"
+GOAL_LESSON = ROOT / "s17_goal_loop" / "agent_loop.py"
 GLOB_LESSONS = (*LESSONS[1:], INTEGRATED_LESSON, GOAL_LESSON)
 
 
@@ -277,7 +277,7 @@ def test_parent_loop_executes_a_real_tool_call_even_if_stop_reason_disagrees(
 
 def test_subagent_stops_without_an_empty_tool_result_turn():
     with tempfile.TemporaryDirectory() as tmp:
-        lesson = load_lesson(Path(tmp), ROOT / "s06_subagent" / "code.py")
+        lesson = load_lesson(Path(tmp), ROOT / "s06_subagent" / "agent_loop.py")
         disable_lesson_side_effects(lesson)
         api = FakeMessagesApi([empty_tool_use_response()])
         lesson.client = types.SimpleNamespace(messages=api)
@@ -288,7 +288,7 @@ def test_subagent_stops_without_an_empty_tool_result_turn():
 
 def test_subagent_still_executes_a_real_tool_call_with_text_present():
     with tempfile.TemporaryDirectory() as tmp:
-        lesson = load_lesson(Path(tmp), ROOT / "s06_subagent" / "code.py")
+        lesson = load_lesson(Path(tmp), ROOT / "s06_subagent" / "agent_loop.py")
         disable_lesson_side_effects(lesson)
         tool_call = types.SimpleNamespace(
             type="tool_use",
@@ -315,7 +315,7 @@ def test_subagent_still_executes_a_real_tool_call_with_text_present():
 
 def test_s13_teammate_does_not_continue_with_an_empty_tool_result_turn():
     with tempfile.TemporaryDirectory() as tmp:
-        lesson = load_lesson(Path(tmp), ROOT / "s13_agent_teams" / "code.py")
+        lesson = load_lesson(Path(tmp), ROOT / "s13_agent_teams" / "agent_loop.py")
         api = FakeMessagesApi([empty_tool_use_response()])
         lesson.client = types.SimpleNamespace(messages=api)
         runtime = lesson.TeammateRuntime(
@@ -332,7 +332,7 @@ def test_s13_teammate_does_not_continue_with_an_empty_tool_result_turn():
 
 def test_s13_teammate_executes_a_real_tool_call_when_stop_reason_disagrees():
     with tempfile.TemporaryDirectory() as tmp:
-        lesson = load_lesson(Path(tmp), ROOT / "s13_agent_teams" / "code.py")
+        lesson = load_lesson(Path(tmp), ROOT / "s13_agent_teams" / "agent_loop.py")
         api = FakeMessagesApi([
             types.SimpleNamespace(
                 stop_reason="end_turn",

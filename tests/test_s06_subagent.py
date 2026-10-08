@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LESSON = ROOT / "s06_subagent" / "code.py"
+LESSON = ROOT / "s06_subagent" / "agent_loop.py"
 
 
 def load_lesson(temp_cwd: Path):

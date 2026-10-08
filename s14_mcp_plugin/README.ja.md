@@ -173,7 +173,7 @@ lesson script を終了せず、model は次の turn で argument を修正で�
 
 ```sh
 cd learn-claude-code
-python s14_mcp_plugin/code.py
+python s14_mcp_plugin/agent_loop.py
 ```
 
 入力：

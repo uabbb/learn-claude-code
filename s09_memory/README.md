@@ -174,7 +174,7 @@ The course uses a simple count threshold. A real application must also choose a 
 
 ```sh
 cd learn-claude-code
-python s09_memory/code.py
+python s09_memory/agent_loop.py
 ```
 
 1. Enter `I prefer using tabs for indentation. Remember that.` After the turn, check that `.memory/` contains a new record and `MEMORY.md` contains its index entry.

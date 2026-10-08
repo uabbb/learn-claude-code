@@ -169,7 +169,7 @@ def test_s15_runtime_discovers_and_dispatches_mcp_tools(
     monkeypatch.setenv("MODEL_ID", "test-model")
     harness = load_lesson(
         "integrated_mcp_scenario_test",
-        ROOT / "s15_integrated_harness" / "code.py",
+        ROOT / "s15_integrated_harness" / "agent_loop.py",
     )
     harness.WORKDIR = tmp_path
 
@@ -198,7 +198,7 @@ def test_s16_scenario_matches_the_deterministic_runtime(tmp_path: Path) -> None:
     shown_result = json.loads(workflow_result["content"])
 
     workflow = load_lesson(
-        "workflow_scenario_test", ROOT / "s16_workflow_runtime" / "code.py"
+        "workflow_scenario_test", ROOT / "s16_workflow_runtime" / "agent_loop.py"
     )
     workflow.STORE = tmp_path
     workflow.create_run_id = lambda _meta: "wf_review-changes_0000000000001a7b"
@@ -224,7 +224,7 @@ def test_generated_s16_metadata_extends_s15_without_registry_false_positives() -
     }
     for lesson_id in ("s11", "s12", "s13", "s14", "s15", "s16"):
         assert by_id[lesson_id]["source"] == (
-            chapter_dirs[lesson_id] / "code.py"
+            chapter_dirs[lesson_id] / "agent_loop.py"
         ).read_text()
     signatures = {
         function["name"]: function["signature"]

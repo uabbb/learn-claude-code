@@ -131,7 +131,7 @@ Agent が閉じている間も実行する必要がある場合は、crontab、s
 
 ```sh
 cd learn-claude-code
-python s12_cron_scheduler/code.py
+python s12_cron_scheduler/agent_loop.py
 ```
 
 次の prompt を順に入力できる。

@@ -15,7 +15,7 @@ from test_skill_loading import load_lesson
 ROOT = Path(__file__).resolve().parents[1]
 SCAFFOLD = ROOT / "skills" / "agent-builder" / "scripts" / "init_agent.py"
 SOURCE_FILES = tuple(sorted({
-    *ROOT.glob("s[0-9][0-9]_*/code.py"),
+    *ROOT.glob("s[0-9][0-9]_*/agent_loop.py"),
     *ROOT.glob("agents/*.py"),
     *(ROOT / "skills" / "agent-builder").rglob("*.py"),
 }))

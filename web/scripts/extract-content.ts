@@ -50,7 +50,7 @@ function listRootChapters(): ChapterSource[] {
       const id = dirToVersionId(dirName);
       if (!id) return null;
       const dirPath = path.join(REPO_ROOT, dirName);
-      const codePath = path.join(dirPath, "code.py");
+      const codePath = path.join(dirPath, "agent_loop.py");
       if (!fs.existsSync(codePath)) return null;
       return { id, dirName, dirPath, codePath };
     })
